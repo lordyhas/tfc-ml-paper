@@ -54,21 +54,21 @@
 %                                     also used for the TOC unless
 %                                     \toctitle is used
 %
-\author{Hassan T. Kajila\inst{1} \and Jordan Masakuna\inst{5}  \and Geysla Memita\inst{2} \and Godwill Ilunga\inst{3} \and August Muhau\inst{4}}
+\author{Hassan T. Kajila\inst{1} \and Jordan Masakuna\inst{5} \and Godwill Ilunga W.K.\inst{3} \and Auguste Muhau\inst{4} \and Geysla Memita\inst{2}}
 %
 \authorrunning{Hassan Kajila et al.}   % abbreviated author list (for running head)
 %
 %%%% list of authors for the TOC (use if author list has to be modified)
-\tocauthor{Hassan Kajila, Jordan Masakuna, Geysla Memita, Godwill Ilunga, August Muhau}
+\tocauthor{Hassan Kajila, Jordan Masakuna, Godwill Ilunga, August Muhau, Geysla Memita}
 %
 \institute{Université Nouveaux Horizons, Faculté des Sciences Informatiques, Lubumbashi, DR of Congo
-	\\ email: \texttt{contact@hassankajila.com}
+	\\ email: \texttt{h.kajila@gmail.com}
+	\and
+	Université Nouveaux Horizons, Faculté des Sciences des Gestions, Lubumbashi, DR of Congo
+	\\ email: \texttt{memitageys@gmail.com}
 	\and
 	Université Nouveaux Horizons, Faculté des Sciences Informatiques, Lubumbashi, DR of Congo
-	\\ email: \texttt{geysla.memita@unhorizons.org}
-	\and
-	Université Nouveaux Horizons, Faculté des Sciences Informatiques, Lubumbashi, DR of Congo
-	\\ email: \texttt{godwill.ilunga@unhorizons.org}
+	\\ email: \texttt{ilunga.godwill@unhorizons.org}
 	\and
 	Université Nouveaux Horizons, Département des Sciences de base, Lubumbashi, DR of Congo
 	\\ email: \texttt{august.muhau@unhorizons.org}
@@ -77,7 +77,7 @@
 	\\ email: \texttt{jordan.masakuna@unikin.ac.cd}
 }
 	
-\maketitle              % typeset the title of the contribution
+ \maketitle              % typeset the title of the contribution
  \index{Kajila, Hassan} % entries for the author index
  \index{Sungu, Pascal}  % of the whole volume
  \index{Ilunga, Godwill}
@@ -87,15 +87,19 @@
  
  %\vspace{0.3cm}
 \begin{abstract}        % give a summary of your paper
-	%Nowadays, a huge number of cameras are deployed exclusively for surveillance. The contents of images and videos are often interpreted by human operators. 
-	Nowadays, a lot of cameras are deployed exclusively for surveillance.
-	This makes content tracking and analysis so expensive, not to mention the mistakes that human fatigue and carelessness can introduce.
-	In this work we propose a method, based on artificial intelligence, which allows computer systems to derive meaningful information from digital images. As part of this work, the aim is to perform automatic license plate recognition using optimizers based on the \emph{stochastic gradient descent}.
-	Therefore, the main objective of this present study is to examine the different optimizers and determine the best able to recognize license plates, in spite of possible geometric transformations, in order to reduce the constraints in the detection of license plates as to the position of the camera. 
-	%Experiments on several license plates that undergo a slight geometric transformation, in image, made it possible to validate the performance obtained with this approach.
-	Experiments on several license plates made it possible to validate the performance obtained with this approach.
+	
+	% Nowadays, a lot of cameras are deployed exclusively for surveillance. This makes content tracking and analysis so expensive, not to mention the mistakes that human fatigue and carelessness can introduce. In this work we propose a method, based on artificial intelligence, which allows computer systems to derive meaningful information from digital images. As part of this work, the aim is to perform automatic license plate recognition using optimizers based on the \emph{stochastic gradient descent}. Therefore, the main objective of this present study is to examine the different optimizers and determine the best able to recognize license plates, in spite of possible geometric transformations, in order to reduce the constraints in the detection of license plates as to the position of the camera. Experiments on several license plates made it possible to validate the performance obtained with this approach.
+	
+	Today,many camera are deployed exclusively for surveillance purpose. This makes content tracking and analysis expensive, not to mention human errors and mistakes that can be caused by carelessness and fatigue.
+	In this work we propose a machine learning method which allows computer systems to derive meaningful information from digital images, of license plate. An automatic recognition of license plate using optimizers which are on the \emph{stochastic gradient descent} is carried out. 
+	%Results of different optimizers are presented and the optimizer that produce best result are...
+	The main objective of this study is to examine the different optimizers and determine the best able to recognize license plates, in spite of possible geometric transformations, in order to reduce the constraints in the detection of license plates as to the position of the camera. Experiments on several license plates made it possible to validate the performance obtained with this approach.
+	
+	
+	
+
 %                         please supply keywords within your abstract
-\keywords{Supervised learning, Stochastic optimization methods, Stochastic gradient descent, Visual Geometry Group (VGG), Automatic License Plate Recognition, Geometric transformations.}
+\keywords{Machine learning, Supervised learning, Stochastic optimization, Stochastic gradient descent, Visual Geometry Group, Object recognition.}%, Geometric transformations.}
 \end{abstract}
 
 %\vspace{0.2cm}
@@ -109,26 +113,28 @@
 	
 	The first untrained model built in supervised learning to perform a certain task usually does not yield an accurate result compared to the output or task it was supposed to do \cite[]{goodfellow2016deep, geron2017hands}.
 	The loss function (also called cost function) is a way to measure whether the model better schematizes the system it's supposed to describe. This is necessary to determine the deviation, or learning error, %error rate,
-	between the current output of model and its expected output \cite[]{antoine2018apprentissage}. 
+	between the current output of the model and its expected output \cite[]{antoine2018apprentissage}. 
 	%
-	For example for classification tasks, a learning error %error rate 
-	for a binary SVM (Support Vector Machine) classifier might be reported, although the loss function used to train the SVM only very loosely models the number of errors on the training set, and similarly neural net training uses convex costs, such as mean square error or cross-entropy \cite[]{burges2006learning}.  
+	For classification tasks, for example, a learning error %error rate 
+	for a binary Support Vector Machine (SVM) classifier might be reported, although the loss function used to train the SVM only very loosely models the number of errors on the training set, and similarly neural net training uses convex costs, such as mean square error or cross-entropy \cite[]{burges2006learning}.  
 	%
-	Thus often in machine learning tasks, there are actually two cost functions: the desired cost, and the one used in the optimization process. \\
+	Thus often in machine learning tasks, there are actually two cost functions: The desired cost and the one used in the optimization process. \\
 	
 	% Minimisation
 	Minimizing errors or optimizing weight parameters for a neural network is an important task in the learning process. The training dataset for object detection problems are typically very large and the capabilities of machine learning methods are limited by computation time rather than sample size. % \cite{bottou2010large}.
 	%new
-	For deep convolutional networks trained in a supervised setting, the training objective is typically the minimization of learning error (\eg classification error see \cite[chap. 3]{ml2008python}) at the top network layer. \\Many neural network training algorithms explicitly minimize a loss function. For instance, the back-propagation technique uses the gradient descent algorithm to minimize the mean squared error (MSE see \cite[]{bosman2020visualising}) loss function. 
+	For deep convolutional networks trained in a supervised setting, the training objective is typically the minimization of learning error (\eg classification error \cite[chap. 3]{ml2008python}) at the top network layer. \\Many neural network training algorithms explicitly minimize a loss function. For instance, the back-propagation technique uses the gradient descent algorithm to minimize the mean squared error (MSE) loss function \cite[]{bosman2020visualising}. 
 	%new
 	Deep convolutional neural networks trained using back-propagation are thus achieving record performance in a variety of large-scale computer vision tasks \cite[]{krizhevsky2012imagenet, simonyan2014very, huang2017densely}.\\
 	
 	% Objectif
-	This paper deals with the use of numerical optimization algorithms, precisely the minimization of errors. They will be applied to machine learning that will enable computer systems to automatically recognize vehicle license plates. This work will be done using optimizers focused on stochastic gradient descent to optimize the parameters of the convolutional neural network (CNN).
+	This paper deals with the use of numerical optimization algorithms, precisely error minimization. %They will be applied to machine learning that will enable computer systems to automatically recognize vehicle license plates.
+	A machine learning model will be trained and used to recognize vehicle license plates. 
+	This is done using optimizers focused on stochastic gradient descent to optimize the parameters of the convolutional neural network (CNN).
 	Therefore for each algorithm or optimizer, their efficiency will be examined and compared with each other, and classified according to the score (accuracy, loss) obtained.\\
 	
 	% Division
-	We discuss the stochastic gradient descent (SGD) method in section 2. We describe the proposed CNN dataset and model built with the VGG architecture in section 3 and quantitatively evaluate the performance of different SGD-based optimizers. And also we present the results of the application in automatic license plate recognition in section 4. We present our findings and an in-depth discussion on the performance of the best optimizers in section 5.
+	We discussed the stochastic gradient descent (SGD) method in section 2. We describe the proposed CNN dataset and model built with the VGG architecture in section 3 and quantitatively evaluate the performance of different SGD-based optimizers. And also we present the results of the application in automatic license plate recognition in section 4. We present our findings and an in-depth discussion on the performance of the best optimizers in section 5.
 	
 
 \section{Minimization by the stochastic descent gradient}
@@ -137,7 +143,8 @@
 	Let the following e.g (from \cite[]{bottou1991stochastic}), Consider a function, $J(z,w)$, that measures the cost incurred by a system defined by some parameter $w$ processing an observation $z$. In the case of connectionist learning, this function is equal to $(y-f(x,w))^2$ (with $f(x,w) = w^Tx$) and measures how well the output $y$ for pattern $x$ is approached. Learning consists of finding the parameter $w*$ that minimizes the following cost:
 	
 	\begin{equation}
-		Q(w) = \ell(J(z,w)) = \int J(z,w)dP(z)
+		Q(w) =\langle (y-w^Tx)^2 \rangle = \langle (y-f(x,w))^2 \rangle = \ell(J(z,w)) = \int J(z,w)dP(z)
+		\label{eq:cost}
 	\end{equation}
 	%The brackets denote the average value, over all possible examples, of the squared difference
 	%between the output and the actual class.
@@ -158,7 +165,7 @@
 	\label{eq:descent_gradient}
 	\end{equation}
 	A stochastic process ${w_t; t=1,...N}$ depends on the randomly selected sample at each iteration.
-	The stochastic gradient descent directly optimizes the expected risk, since the examples are randomly drawn from the ground truth distribution \cite[]{bottou2010large}.
+	The stochastic gradient descent directly optimizes the expected risk, since the examples are randomly drawn from the ground truth distribution \cite[]{bottou2010large, esunge2020superposed}.
 	However, stochastic gradient descent algorithm have proven to be faster, more reliable, and less likely to hit bad local minima than standard gradient descent methods \cite[]{wijnhoven2010fast}. The algorithm updates the weights according to the gradient of the loss function after each example is presented \cite[]{bottou1991stochastic}.\\
 	
 	SGD has difficulty navigating through cost function valleys, i.e. areas where the surface curves much more steeply in one dimension than another, which are common around local optima \cite[]{antoine2018apprentissage}. In these scenarios, SGD oscillates on the slopes of the valley while making only a hesitant progression along the bottom towards the local optimum \cite[]{ruder2016overview,bottou1991stochastic}.
@@ -517,7 +524,7 @@
 % ---- Bibliography ----
 %
 %\bibliographystyle{plain}
-%\nocite{*}
-\bibliography{myref}
+\nocite{*}
+\bibliography{ref}
 %
 \end{document}
